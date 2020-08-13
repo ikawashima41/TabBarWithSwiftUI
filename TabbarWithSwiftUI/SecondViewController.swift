@@ -7,24 +7,29 @@
 //
 
 import UIKit
+import SwiftUI
 
-class SecondViewController: UIViewController {
+final class SecondViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        title = "画面２"
+        view.backgroundColor = .green
     }
-    
+}
 
-    /*
-    // MARK: - Navigation
+/// UIViewControllerRepresentableに準拠したラッパーの構造体を作ります
+struct SecondViewControllerWrapper: UIViewControllerRepresentable {
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    typealias UIViewControllerType = SecondViewController
+
+    func makeUIViewController(context: Context) -> SecondViewController {
+        /// ストーリーボードを使っている場合は、StoryBoardからViewControllerを取得して初期化してください。
+        return SecondViewController()
     }
-    */
 
+    func updateUIViewController(_ uiViewController: SecondViewController, context: Context) {
+        // TODO: Do Something
+    }
 }

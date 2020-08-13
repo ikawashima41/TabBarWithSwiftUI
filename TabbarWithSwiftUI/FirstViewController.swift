@@ -7,24 +7,29 @@
 //
 
 import UIKit
+import SwiftUI
 
-class FirstViewController: UIViewController {
+final class FirstViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        title = "画面１"
+        view.backgroundColor = .red
     }
-    
+}
 
-    /*
-    // MARK: - Navigation
+/// UIViewControllerRepresentableに準拠したラッパーの構造体を作ります
+struct FirstViewControllerWrapper: UIViewControllerRepresentable {
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    typealias UIViewControllerType = FirstViewController
+
+    func makeUIViewController(context: Context) -> FirstViewController {
+        /// ストーリーボードを使っている場合は、StoryBoardからViewControllerを取得して初期化してください。
+        return FirstViewController()
     }
-    */
 
+    func updateUIViewController(_ uiViewController: FirstViewController, context: Context) {
+        // TODO: Do Something
+    }
 }
